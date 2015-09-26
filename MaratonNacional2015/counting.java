@@ -1,7 +1,8 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-//Accepted in Competition
+//Accepted in competition
+//Available at: https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=4821
 public class counting {
 
 	public static void main(String[] args) {

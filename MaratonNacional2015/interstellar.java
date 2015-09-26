@@ -3,7 +3,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-//Accepted UVa
+//Available at: https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=4827
 public class interstellar {
 	
 	static ArrayList<Integer> grafo[];

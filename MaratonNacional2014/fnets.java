@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-//Accepted
+//Available at: https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=4651
 public class fnets {
 
 	public static void main(String[] args) {

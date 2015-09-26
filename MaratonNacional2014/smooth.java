@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-//Accepted
+//Available at: https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=4653
 public class smooth {
 
 	public static void main(String[] args) {

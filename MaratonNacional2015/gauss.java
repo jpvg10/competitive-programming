@@ -3,6 +3,7 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 
 //Accepted in competition
+//Available at: https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=4825
 public class gauss {
 
 	public static void main(String[] args) {
