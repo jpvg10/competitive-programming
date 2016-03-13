@@ -33,7 +33,8 @@ public class fnets {
 					possible = false;
 					break;
 				}
-			}								
+			}	
+			
 			System.out.println(possible?1:0);				
 		}
 		sc.close();		

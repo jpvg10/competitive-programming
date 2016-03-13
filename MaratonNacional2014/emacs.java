@@ -5,29 +5,26 @@ import java.io.InputStreamReader;
 //Available at: https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=4650
 public class emacs {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
-		String l;
-		try {
-			while((l=br.readLine()) != null){
-				int n = Integer.parseInt(l);
-				String text = br.readLine();
-				for(int i=0; i<n; i++){
-					String patterns[] = br.readLine().split("\\*");					
-					int inicio = 0;
-					for(int k=0; k<patterns.length && inicio != -1; k++){
-						if(!patterns[k].equals(""))
-							inicio = KMP(text, patterns[k], inicio);									
-					}
-					if(inicio != -1)
-						System.out.println("yes");
-					else
-						System.out.println("no");					
+		String l;		
+		while((l=br.readLine()) != null){
+			int n = Integer.parseInt(l);
+			String text = br.readLine();
+			for(int i=0; i<n; i++){
+				String patterns[] = br.readLine().split("\\*");					
+				int start = 0;
+				for(int k=0; k<patterns.length && start != -1; k++){
+					if(!patterns[k].equals(""))
+						start = KMP(text, patterns[k], start);									
 				}
+				if(start != -1)
+					System.out.println("yes");
+				else
+					System.out.println("no");					
 			}
-		} catch (IOException e) {			
-		}
+		}		
 	}
 	
 	private static int[] computeTemporaryArray(String pattern){
@@ -67,10 +64,9 @@ public class emacs {
                 }
             }
         }
-        if(j == pattern.length()){
+        if(j == pattern.length())
         	return i;        	        
-        }
-        return -1;
+        else
+        	return -1;        
     }
-
 }

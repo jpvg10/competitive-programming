@@ -13,21 +13,21 @@ public class smooth {
 			for(int i=0; i<n; i++)
 				v[i] = sc.nextInt();			
 			
-			int anterior = 0, actual = 1, maximo = -1;
+			int previous = 0, current = 1, max = -1;
 			
 			for(int i=1; i<n; i++){
 				if(v[i]>=v[i-1]){
-					actual++;					
-				}else{	
-					maximo = maximo<(anterior+actual)?(anterior+actual):maximo;
-					anterior = actual;
-					actual = 1;
+					current++;					
+				}else{
+					max = max<(previous+current)?(previous+current):max;
+					previous = current;
+					current = 1;
 				}
 			}	
 			
-			maximo = maximo<(anterior+actual)?(anterior+actual):maximo;			
+			max = max<(previous+current)?(previous+current):max;			
 			
-			System.out.println(maximo);						
+			System.out.println(max);						
 		}
 		sc.close();
 	}
