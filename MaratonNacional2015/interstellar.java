@@ -1,8 +1,10 @@
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+//Accepted in UVa
 //Available at: https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=4827
 public class interstellar {
 	
@@ -11,82 +13,80 @@ public class interstellar {
 	static Flight vuelos[][];
 	static Flight A[][];
 	
-	public static void main(String args[]){
+	public static void main(String args[]) throws IOException{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
 		boolean first = true;
-		String l;
-		try {
-			while((l = br.readLine()) != null){
-				HashMap<String, Integer> map = new HashMap<String, Integer>();
-				
-				if(!first)
-					System.out.println(".");
-				
-				first = false;	
-								
-				String line[] = l.split(" ");
-				int p = Integer.parseInt(line[0]);
-				int f = Integer.parseInt(line[1]);
-				int q = Integer.parseInt(line[2]);
-				
-				grafo = new ArrayList[p];
-				grafoReverse = new ArrayList[p];
-				vuelos = new Flight[p][p];
-				
-				for(int i=0; i<p; i++){
-					l = br.readLine();
-					map.put(l, i);
-					grafo[i] = new ArrayList<Integer>();
-					grafoReverse[i] = new ArrayList<Integer>();
-				}
-				
-				for(int i=0; i<f; i++){
-					line = br.readLine().split(" ");
-					int s0 = map.get(line[0]);
-					int sd = map.get(line[1]);
-					int c = Integer.parseInt(line[2]);
-					int t = Integer.parseInt(line[3]);
-					if(!grafo[s0].contains(sd)){
-						grafo[s0].add(sd);
-						grafoReverse[sd].add(s0);
-					}
-					if(vuelos[s0][sd] == null){
-						vuelos[s0][sd] = new Flight(c, t);
-					}else{
-						Flight actual = new Flight(c, t);
-						if(actual.compareTo(vuelos[s0][sd]) < 0)
-							vuelos[s0][sd] = actual;
-					}								
-				}
-				
+		
+		String l;		
+		while((l = br.readLine()) != null){
+			HashMap<String, Integer> map = new HashMap<String, Integer>();
+			
+			if(!first)
+				System.out.println(".");
+			
+			first = false;	
+							
+			String line[] = l.split(" ");
+			int p = Integer.parseInt(line[0]);
+			int f = Integer.parseInt(line[1]);
+			int q = Integer.parseInt(line[2]);
+			
+			grafo = new ArrayList[p];
+			grafoReverse = new ArrayList[p];
+			vuelos = new Flight[p][p];
+			
+			for(int i=0; i<p; i++){
 				l = br.readLine();
-				int source = map.get(l);
-				
-				BellmanFord(source, p);
-				
-				for(int i=0; i<q; i++){
-					line = br.readLine().split(" ");
-					int sf = map.get(line[0]);
-					if(source == sf){
-						System.out.println("0 0");
-					}else{
-						int n = Integer.parseInt(line[1]);
-						Flight minimumCost;
-						if(n >= p-1)
-							minimumCost = A[p-1][sf];
-						else
-							minimumCost = A[n+1][sf];
-						
-						if(minimumCost.cost == Integer.MAX_VALUE)
-							System.out.println("* *");
-						else
-							System.out.println(minimumCost.cost+" "+minimumCost.time);						
-					}					
-				}				
+				map.put(l, i);
+				grafo[i] = new ArrayList<Integer>();
+				grafoReverse[i] = new ArrayList<Integer>();
 			}
-		} catch (Exception e) {			
-		}
+			
+			for(int i=0; i<f; i++){
+				line = br.readLine().split(" ");
+				int s0 = map.get(line[0]);
+				int sd = map.get(line[1]);
+				int c = Integer.parseInt(line[2]);
+				int t = Integer.parseInt(line[3]);
+				if(!grafo[s0].contains(sd)){
+					grafo[s0].add(sd);
+					grafoReverse[sd].add(s0);
+				}
+				if(vuelos[s0][sd] == null){
+					vuelos[s0][sd] = new Flight(c, t);
+				}else{
+					Flight actual = new Flight(c, t);
+					if(actual.compareTo(vuelos[s0][sd]) < 0)
+						vuelos[s0][sd] = actual;
+				}								
+			}
+			
+			l = br.readLine();
+			int source = map.get(l);
+			
+			BellmanFord(source, p);
+			
+			for(int i=0; i<q; i++){
+				line = br.readLine().split(" ");
+				int sf = map.get(line[0]);
+				if(source == sf){
+					System.out.println("0 0");
+				}else{
+					int n = Integer.parseInt(line[1]);
+					Flight minimumCost;
+					if(n >= p-1)
+						minimumCost = A[p-1][sf];
+					else
+						minimumCost = A[n+1][sf];
+					
+					if(minimumCost.cost == Integer.MAX_VALUE)
+						System.out.println("* *");
+					else
+						System.out.println(minimumCost.cost+" "+minimumCost.time);						
+				}					
+			}				
+		}		
 	}
 	
 	public static void BellmanFord(int s, int p){

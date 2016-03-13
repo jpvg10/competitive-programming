@@ -1,33 +1,33 @@
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 
-//Accepted in competition
+//Accepted in Competition
 //Available at: https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=4821
 public class counting {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		BufferedReader scan = new BufferedReader(new InputStreamReader(System.in));
-		String line;
-		try{
-			while((line = scan.readLine()) != null){
-				String line2 = scan.readLine();
-				String pattern = stringMap(line);
-				String text = stringMap(line2);
-				int start = 0;
-				int patternlen = 0;
-				int len = text.length();
-				int count = 0;
-				int loquelleva = 0;
-				while(start < len){
-					start = match(text.substring(loquelleva, len), pattern);
-					patternlen = pattern.length();
-					if(start == -1) break;
-					loquelleva += start + patternlen;
-					count++;
-				}
-				System.out.println(count);
+		
+		String line;		
+		while((line = scan.readLine()) != null){
+			String line2 = scan.readLine();
+			String pattern = stringMap(line);
+			String text = stringMap(line2);
+			int start = 0;
+			int patternlen = 0;
+			int len = text.length();
+			int count = 0;
+			int loquelleva = 0;
+			while(start < len){
+				start = match(text.substring(loquelleva, len), pattern);
+				patternlen = pattern.length();
+				if(start == -1) break;
+				loquelleva += start + patternlen;
+				count++;
 			}
-		}catch(Exception e){}
+			System.out.println(count);
+		}		
 	}
 	
 	public static String stringMap(String expression){
@@ -85,5 +85,4 @@ public class counting {
 		}
 		return -1;
 	}
-
 }

@@ -1,4 +1,5 @@
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 
@@ -6,41 +7,39 @@ import java.util.Arrays;
 //Available at: https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=4825
 public class gauss {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		BufferedReader scan = new BufferedReader(new InputStreamReader(System.in));
-		String line;
-		try{
-			while((line = scan.readLine()) != null){
-				long num = Long.parseLong(line);
-				long n = num;
-				int unos[] = new int[100];
-				Arrays.fill(unos, -1);
-				int count = 0;
-				int contadorUnos = 0;
-				while(n>0){
-					if(n % 2 == 1){
-						unos[contadorUnos] = count;
-						contadorUnos++;						
-					}
-					count++;
-					n = n/2;
+		
+		String line;		
+		while((line = scan.readLine()) != null){
+			long num = Long.parseLong(line);
+			long n = num;
+			int unos[] = new int[100];
+			Arrays.fill(unos, -1);
+			int count = 0;
+			int contadorUnos = 0;
+			while(n>0){
+				if(n % 2 == 1){
+					unos[contadorUnos] = count;
+					contadorUnos++;						
 				}
-				
-				int r[] = new int[2];
-				r[0] = 0;
-				r[1] = 0;
-				for(int i = 0; unos[i] != -1 && i < count; i++){
-					int power[] = complexPow(unos[i]);
-					r[0] += power[0];
-					r[1] += power[1];
-				}
-				System.out.println(r[1]+" "+r[0]);
+				count++;
+				n = n/2;
 			}
-		}catch(Exception e){
 			
-		}
+			int r[] = new int[2];
+			r[0] = 0;
+			r[1] = 0;
+			for(int i = 0; unos[i] != -1 && i < count; i++){
+				int power[] = complexPow(unos[i]);
+				r[0] += power[0];
+				r[1] += power[1];
+			}
+			System.out.println(r[1]+" "+r[0]);
+		}		
 	}
-
+	
+	//Finds the result of (i-1)^k = a[0]*i+a[1]
 	public static int[] complexPow(int k){
 		int a[] = new int[2];
 		if(k==0){
