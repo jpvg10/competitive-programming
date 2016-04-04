@@ -6,12 +6,12 @@ public class Main {
 		Scanner sc = new Scanner(System.in);
 		int t = Integer.parseInt(sc.nextLine());
 
-		for (int i=0; i<t; i++) {
+		for(int i=0; i<t; i++) {
 			String l = sc.nextLine();
 			int current = 0;
 			int score = 0;
 			int len = l.length();
-			for (int j=0; j<len; j++) {
+			for(int j=0; j<len; j++) {
 				if(l.charAt(j) == 'O'){
 					current++;
 					score = score + current;
