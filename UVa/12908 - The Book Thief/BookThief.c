@@ -2,6 +2,7 @@
 #include <math.h>
 
 //Problema de la competencia 05 de la RPC 2015
+//Al compilar poner el parametro -lm
 int main(void)
 {
 	int s;

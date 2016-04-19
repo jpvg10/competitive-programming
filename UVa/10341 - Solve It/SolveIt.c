@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <math.h>
 
+//Al compilar poner el parametro -lm
+
 double f(double x);
 
 int p, q, r, s, t, u;
