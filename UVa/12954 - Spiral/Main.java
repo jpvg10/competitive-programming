@@ -7,45 +7,45 @@ public class Main {
 
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		
-		String l;		
-        while((l = br.readLine()) != null){
-            String numeros[] = l.split(" ");
-            long n = Long.parseLong(numeros[0]);
-            long b = Long.parseLong(numeros[1]);
 
-//				
-//				while(4*n-4 < b){
-//					b = b-(4*n-4);
-//					n = n-2;
-//					iteraciones++;
-//				}
-//				
+		String l;
+		while((l = br.readLine()) != null){
+			String numeros[] = l.split(" ");
+			long n = Long.parseLong(numeros[0]);
+			long b = Long.parseLong(numeros[1]);
 
-            double t = (n-Math.sqrt(n*n-b))/2;
+			/*
+			while(4*n-4 < b){
+				b = b-(4*n-4);
+				n = n-2;
+				iteraciones++;
+			}
+			*/
 
-            long i = (long)Math.floor(t);
+			double t = (n-Math.sqrt(n*n-b))/2;
 
-            long nf = n - 2*i;
-            long bf = b + 4*i*i - 4*n*i;
+			long i = (long)Math.floor(t);
 
-            long c, r;
+			long nf = n - 2*i;
+			long bf = b + 4*i*i - 4*n*i;
 
-            if(bf<=nf){
-                c = i+bf;
-                r = i+1;
-            }else if(bf<=2*nf-1){
-                c = i+nf;
-                r = i+bf-nf+1;
-            }else if(bf<=3*nf-2){
-                c = i+3*nf-bf-1;
-                r = i+nf;
-            }else{
-                c = i+1;
-                r = i+4*nf-bf-2;
-            }
+			long c, r;
 
-            System.out.println(r+" "+c);
-        }					
+			if(bf<=nf){
+				c = i+bf;
+				r = i+1;
+			}else if(bf<=2*nf-1){
+				c = i+nf;
+				r = i+bf-nf+1;
+			}else if(bf<=3*nf-2){
+				c = i+3*nf-bf-1;
+				r = i+nf;
+			}else{
+				c = i+1;
+				r = i+4*nf-bf-2;
+			}
+
+			System.out.println(r+" "+c);
+		}
 	}
 }

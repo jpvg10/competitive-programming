@@ -2,12 +2,12 @@ import java.util.Scanner;
 import java.util.HashSet;
 
 public class Main {
-    
+
 	public static void main(String[] args){
 		Scanner sc = new Scanner(System.in);
 		int n = Integer.parseInt(sc.nextLine());
-		
-        for(int i=1; i<=n; i++){
+
+		for(int i=1; i<=n; i++){
 			String l[] = sc.nextLine().split(" ");
 			int a = Integer.parseInt(l[0]);
 			int b = Integer.parseInt(l[1]);
@@ -29,7 +29,7 @@ public class Main {
 						palabras++;
 					}
 				}
-			}			
+			}
 			System.out.println("Case "+i+": "+palabras);
 		}
 	}

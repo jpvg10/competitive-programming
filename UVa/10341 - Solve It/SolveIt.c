@@ -7,7 +7,7 @@ double f(double x);
 
 int p, q, r, s, t, u;
 
-int main(void) {	
+int main(void) {
 	while(scanf("%d %d %d %d %d %d", &p, &q, &r, &s, &t, &u) != EOF){
 		if(f(0)*f(1) <= 0){
 			double a = 0;

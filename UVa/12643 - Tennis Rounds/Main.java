@@ -9,16 +9,16 @@ public class Main {
 			int n=Integer.parseInt(l[0]);
 			int i=Integer.parseInt(l[1]);
 			int j=Integer.parseInt(l[2]);
-		
+
 			int x=0;
-			
-			do{				
+
+			do{
 				i=(i+1)/2;
 				j=(j+1)/2;
-				x++;				
+				x++;
 			}while(i!=j);
-			
-			System.out.println(x);			
-        }
+
+			System.out.println(x);
+		}
 	}
 }
