@@ -23,19 +23,20 @@ public class Main {
 
 				visited = new boolean[n];
 				grafo = new ArrayList[n];
-				for(int j=0; j<n; j++)
+				for(int j=0; j<n; j++){}
 					grafo[j] = new ArrayList<Integer>();
-
+				}
+				
 				for(int j=0; j<m; j++){
 					line = br.readLine().split(" ");
-					int src = Integer.parseInt(line[0]) - 1;
-					int dest = Integer.parseInt(line[1]) - 1;
-					grafo[src].add(dest);
+					int x = Integer.parseInt(line[0]) - 1;
+					int y = Integer.parseInt(line[1]) - 1;
+					grafo[x].add(y);
 				}
 
 				for(int j=0;  j<l; j++){
-					int u = Integer.parseInt(br.readLine()) - 1;
-					dfs(u);
+					int z = Integer.parseInt(br.readLine()) - 1;
+					dfs(z);
 				}
 
 				int knocked = 0;
