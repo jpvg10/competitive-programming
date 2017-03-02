@@ -23,10 +23,10 @@ public class Main {
 
 				visited = new boolean[n];
 				grafo = new ArrayList[n];
-				for(int j=0; j<n; j++){}
+				for(int j=0; j<n; j++){
 					grafo[j] = new ArrayList<Integer>();
 				}
-				
+
 				for(int j=0; j<m; j++){
 					line = br.readLine().split(" ");
 					int x = Integer.parseInt(line[0]) - 1;
