@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.LinkedList;
 
-//Accepted for Small and Large in Practice
+//Accepted for the small and large datasets in Practice Mode
 public class TheLastWord {
 
 	public static void main(String[] args) throws IOException {

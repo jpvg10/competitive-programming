@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map.Entry;
 
-//Accepted for Small and Large in Practice
+//Accepted for the small and large datasets in Practice Mode
 public class RankAndFile {
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
