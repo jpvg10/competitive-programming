@@ -6,6 +6,7 @@ import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 
+//Avaliable at: https://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=4648
 public class wlinks {
 	
 	static ArrayList<Integer> g[];
