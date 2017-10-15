@@ -38,28 +38,28 @@ public class Main {
 			Stack<Integer> st = new Stack<Integer>();
 
 			while(i < n){
-	            if(st.isEmpty() || height[st.peek()] <= height[i]){
-	                st.push(i);
-	                i++;
-	            }else{
-	                int top = st.pop();
+				if(st.isEmpty() || height[st.peek()] <= height[i]){
+					st.push(i);
+					i++;
+				}else{
+					int top = st.pop();
 					if(st.isEmpty()){
 						if(end[0] != -1 && end[0] <= i-1) {
 							area = height[top] * i;
 							maxArea = Long.max(area, maxArea);
 						}
-	                }else {
-	                	if(end[st.peek() + 1] != -1 && end[st.peek() + 1] <= i-1) {
-	                		area = height[top] * (i - st.peek() - 1);
-	                		maxArea = Long.max(area, maxArea);
-	                	}
-	                }
-	            }
-	        }
+					}else {
+						if(end[st.peek() + 1] != -1 && end[st.peek() + 1] <= i-1) {
+							area = height[top] * (i - st.peek() - 1);
+							maxArea = Long.max(area, maxArea);
+						}
+					}
+				}
+			}
 
-	        while(!st.isEmpty()){
-	            int top = st.pop();
-	            if(st.isEmpty()){
+			while(!st.isEmpty()){
+				int top = st.pop();
+				if(st.isEmpty()){
 					if(end[0] != -1 && end[0] <= i-1) {
 						area = height[top] * i;
 						maxArea = Long.max(area, maxArea);
@@ -70,9 +70,9 @@ public class Main {
 						maxArea = Long.max(area, maxArea);
 					}
 				}
-	        }
+			}
 
-	        System.out.println(maxArea);
+			System.out.println(maxArea);
 		}
 
 	}
